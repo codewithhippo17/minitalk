@@ -6,7 +6,7 @@
 /*   By: ehamza <ehamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 01:35:56 by ehamza            #+#    #+#             */
-/*   Updated: 2025/03/25 03:17:55 by ehamza           ###   ########.fr       */
+/*   Updated: 2025/03/25 10:58:31 by ehamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,16 +39,17 @@ void	ft_send(char c, __pid_t pid)
 		g_flag = 0;
 	}
 }
+
 static void	signal_handler(int signum)
 {
-	(void) signum;
+	(void)signum;
 	g_flag = 1;
 }
 
-int main(int ac, char *av[])
+int	main(int ac, char *av[])
 {
 	__pid_t	pid;
-	int i;
+	int		i;
 
 	i = 0;
 	if (ac != 3)

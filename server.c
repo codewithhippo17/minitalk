@@ -6,19 +6,19 @@
 /*   By: ehamza <ehamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 01:41:34 by ehamza            #+#    #+#             */
-/*   Updated: 2025/03/25 10:53:09 by ehamza           ###   ########.fr       */
+/*   Updated: 2025/03/25 10:57:34 by ehamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./minitalk.h"
 
-void    ft_hanler(int signum, siginfo_t *info, void *context)
+void	ft_hanler(int signum, siginfo_t *info, void *context)
 {
-	(void) context;
 	static int		bit_idx;
 	static char		c;
 	static __pid_t	pid;
 
+	(void)context;
 	if (pid != info->si_pid)
 	{
 		c = 0;
@@ -40,10 +40,10 @@ void    ft_hanler(int signum, siginfo_t *info, void *context)
 		exit(1);
 }
 
-int main(void)
+int	main(void)
 {
 	struct sigaction	act;
-	
+
 	act.sa_sigaction = ft_hanler;
 	act.sa_flags = SA_SIGINFO;
 	if (sigemptyset(&act.sa_mask) == -1)
